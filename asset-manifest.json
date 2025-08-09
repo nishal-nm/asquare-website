@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.js": "/asquare-website/static/js/main.964b4b53.js",
+    "main.js": "/asquare-website/static/js/main.e55807f8.js",
     "index.html": "/asquare-website/index.html",
-    "main.964b4b53.js.map": "/asquare-website/static/js/main.964b4b53.js.map"
+    "main.e55807f8.js.map": "/asquare-website/static/js/main.e55807f8.js.map"
   },
   "entrypoints": [
-    "static/js/main.964b4b53.js"
+    "static/js/main.e55807f8.js"
   ]
 }
