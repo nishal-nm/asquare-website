@@ -1,18 +1,19 @@
 const Header = ({ sectionSelect, setMenu, isMenu }) => {
   return (
-    <header className="fixed top-0 left-0 w-full bg-white/95 backdrop-blur-sm border-b border-gray-100 z-100">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
-          <div className="flex items-center space-x-3 mt-1">
+    <header className="fixed top-0 left-0 w-full bg-white/95 backdrop-blur-sm border-b border-gray-100 z-50">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between items-center h-14 sm:h-16">
+          {/* Logo */}
+          <div className="flex items-center">
             <img
               src="./images/Asquare_logo_1.png"
               alt="Asquare Logo"
-              className="h-32 sm:h-40 object-contain"
+              className="h-8 sm:h-10 md:h-12 object-contain"
             />
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center space-x-8">
+          <nav className="hidden lg:flex items-center space-x-6 xl:space-x-8">
             <a
               href="#"
               onClick={(e) => {
@@ -192,8 +193,8 @@ const Header = ({ sectionSelect, setMenu, isMenu }) => {
               Contact Us
             </a>
 
-            {/* Login Button */}
-            <div className="flex items-center space-x-4 ml-6 pl-6 border-l border-gray-200">
+            {/* Desktop Login Button */}
+            <div className="hidden lg:flex items-center space-x-4 ml-6 pl-6 border-l border-gray-200">
               <button
                 onClick={() => sectionSelect('login')}
                 className="flex items-center space-x-2 text-gray-700 hover:text-pink-600 transition-colors duration-200 font-medium text-sm"
@@ -217,21 +218,22 @@ const Header = ({ sectionSelect, setMenu, isMenu }) => {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setMenu(!isMenu)}
-            className="lg:hidden relative p-2 rounded-md hover:bg-gray-50 transition-colors duration-200"
+            className="lg:hidden relative p-2 rounded-md hover:bg-gray-50 transition-colors duration-200 touch-manipulation"
+            aria-label="Toggle menu"
           >
-            <div className="w-6 h-6 flex flex-col justify-center items-center">
+            <div className="w-5 h-5 flex flex-col justify-center items-center">
               <span
-                className={`bg-gray-700 block transition-all duration-300 ease-out h-0.5 w-6 rounded-sm ${
+                className={`bg-gray-700 block transition-all duration-300 ease-out h-0.5 w-5 rounded-sm ${
                   isMenu ? 'rotate-45 translate-y-1' : '-translate-y-0.5'
                 }`}
               ></span>
               <span
-                className={`bg-gray-700 block transition-all duration-300 ease-out h-0.5 w-6 rounded-sm my-0.5 ${
+                className={`bg-gray-700 block transition-all duration-300 ease-out h-0.5 w-5 rounded-sm my-0.5 ${
                   isMenu ? 'opacity-0' : 'opacity-100'
                 }`}
               ></span>
               <span
-                className={`bg-gray-700 block transition-all duration-300 ease-out h-0.5 w-6 rounded-sm ${
+                className={`bg-gray-700 block transition-all duration-300 ease-out h-0.5 w-5 rounded-sm ${
                   isMenu ? '-rotate-45 -translate-y-1' : 'translate-y-0.5'
                 }`}
               ></span>
@@ -242,10 +244,10 @@ const Header = ({ sectionSelect, setMenu, isMenu }) => {
         {/* Mobile Navigation Menu */}
         <div
           className={`lg:hidden transition-all duration-300 ease-in-out ${
-            isMenu ? 'max-h-screen opacity-100 pb-6' : 'max-h-0 opacity-0'
+            isMenu ? 'max-h-screen opacity-100 pb-4' : 'max-h-0 opacity-0'
           } overflow-hidden`}
         >
-          <div className="pt-4 space-y-1 border-t border-gray-100">
+          <div className="pt-2 space-y-1 border-t border-gray-100">
             <a
               href="#"
               onClick={(e) => {
@@ -253,32 +255,47 @@ const Header = ({ sectionSelect, setMenu, isMenu }) => {
                 sectionSelect('home');
                 setMenu(false);
               }}
-              className="block px-4 py-3 text-gray-700 hover:bg-gray-50 hover:text-pink-600 transition-colors duration-200 font-medium text-sm"
+              className="block px-4 py-2.5 text-gray-700 hover:bg-gray-50 hover:text-pink-600 transition-colors duration-200 font-medium text-sm touch-manipulation"
             >
               Home
             </a>
 
             {/* Mobile Dashboard Section */}
-            <div className="px-4 py-3">
-              <div className="text-gray-700 font-medium text-sm mb-2">
+            <div className="px-4 py-2">
+              <button
+                onClick={() => sectionSelect('dashboard')}
+                className="w-full text-left text-gray-700 font-medium text-sm mb-2 touch-manipulation"
+              >
                 Dashboard
-              </div>
-              <div className="pl-4 space-y-2">
+              </button>
+              <div className="pl-4 space-y-1.5">
                 <a
                   href="#"
-                  className="block text-sm text-gray-600 hover:text-pink-600 transition-colors duration-200"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setMenu(false);
+                  }}
+                  className="block text-sm text-gray-600 hover:text-pink-600 transition-colors duration-200 py-1 touch-manipulation"
                 >
                   Microsoft Power BI
                 </a>
                 <a
                   href="#"
-                  className="block text-sm text-gray-600 hover:text-pink-600 transition-colors duration-200"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setMenu(false);
+                  }}
+                  className="block text-sm text-gray-600 hover:text-pink-600 transition-colors duration-200 py-1 touch-manipulation"
                 >
                   Tableau Visuals
                 </a>
                 <a
                   href="#"
-                  className="block text-sm text-gray-600 hover:text-pink-600 transition-colors duration-200"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setMenu(false);
+                  }}
+                  className="block text-sm text-gray-600 hover:text-pink-600 transition-colors duration-200 py-1 touch-manipulation"
                 >
                   Tableau Twins
                 </a>
@@ -292,64 +309,119 @@ const Header = ({ sectionSelect, setMenu, isMenu }) => {
                 sectionSelect('placements');
                 setMenu(false);
               }}
-              className="block px-4 py-3 text-gray-700 hover:bg-gray-50 hover:text-pink-600 transition-colors duration-200 font-medium text-sm"
+              className="block px-4 py-2.5 text-gray-700 hover:bg-gray-50 hover:text-pink-600 transition-colors duration-200 font-medium text-sm touch-manipulation"
             >
               Placements
             </a>
 
             {/* Mobile Courses Section */}
-            <div className="px-4 py-3">
-              <div className="text-gray-700 font-medium text-sm mb-2">
+            <div className="px-4 py-2">
+              <button
+                onClick={() => sectionSelect('courses')}
+                className="w-full text-left text-gray-700 font-medium text-sm mb-2 touch-manipulation"
+              >
                 Courses
-              </div>
-              <div className="pl-4 space-y-2 max-h-48 overflow-y-auto">
+              </button>
+              <div className="pl-4 space-y-1.5 max-h-40 overflow-y-auto">
                 <a
                   href="#"
-                  className="block text-sm text-gray-600 hover:text-pink-600 transition-colors duration-200"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setMenu(false);
+                  }}
+                  className="block text-sm text-gray-600 hover:text-pink-600 transition-colors duration-200 py-1 touch-manipulation"
                 >
                   Generative AI
                 </a>
                 <a
                   href="#"
-                  className="block text-sm text-gray-600 hover:text-pink-600 transition-colors duration-200"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setMenu(false);
+                  }}
+                  className="block text-sm text-gray-600 hover:text-pink-600 transition-colors duration-200 py-1 touch-manipulation"
                 >
                   Business Analytics
                 </a>
                 <a
                   href="#"
-                  className="block text-sm text-gray-600 hover:text-pink-600 transition-colors duration-200"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setMenu(false);
+                  }}
+                  className="block text-sm text-gray-600 hover:text-pink-600 transition-colors duration-200 py-1 touch-manipulation"
                 >
                   Data Analytics
                 </a>
                 <a
                   href="#"
-                  className="block text-sm text-gray-600 hover:text-pink-600 transition-colors duration-200"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setMenu(false);
+                  }}
+                  className="block text-sm text-gray-600 hover:text-pink-600 transition-colors duration-200 py-1 touch-manipulation"
                 >
                   Data Science
                 </a>
                 <a
                   href="#"
-                  className="block text-sm text-gray-600 hover:text-pink-600 transition-colors duration-200"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setMenu(false);
+                  }}
+                  className="block text-sm text-gray-600 hover:text-pink-600 transition-colors duration-200 py-1 touch-manipulation"
                 >
                   Power BI
                 </a>
                 <a
                   href="#"
-                  className="block text-sm text-gray-600 hover:text-pink-600 transition-colors duration-200"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setMenu(false);
+                  }}
+                  className="block text-sm text-gray-600 hover:text-pink-600 transition-colors duration-200 py-1 touch-manipulation"
                 >
                   Tableau Data Visualization
                 </a>
                 <a
                   href="#"
-                  className="block text-sm text-gray-600 hover:text-pink-600 transition-colors duration-200"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setMenu(false);
+                  }}
+                  className="block text-sm text-gray-600 hover:text-pink-600 transition-colors duration-200 py-1 touch-manipulation"
+                >
+                  SalesForce Admin with AI
+                </a>
+                <a
+                  href="#"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setMenu(false);
+                  }}
+                  className="block text-sm text-gray-600 hover:text-pink-600 transition-colors duration-200 py-1 touch-manipulation"
                 >
                   Python Programming
                 </a>
                 <a
                   href="#"
-                  className="block text-sm text-gray-600 hover:text-pink-600 transition-colors duration-200"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setMenu(false);
+                  }}
+                  className="block text-sm text-gray-600 hover:text-pink-600 transition-colors duration-200 py-1 touch-manipulation"
                 >
                   Artificial Intelligence
+                </a>
+                <a
+                  href="#"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setMenu(false);
+                  }}
+                  className="block text-sm text-gray-600 hover:text-pink-600 transition-colors duration-200 py-1 touch-manipulation"
+                >
+                  QlikSense
                 </a>
               </div>
             </div>
@@ -361,7 +433,7 @@ const Header = ({ sectionSelect, setMenu, isMenu }) => {
                 sectionSelect('about');
                 setMenu(false);
               }}
-              className="block px-4 py-3 text-gray-700 hover:bg-gray-50 hover:text-pink-600 transition-colors duration-200 font-medium text-sm"
+              className="block px-4 py-2.5 text-gray-700 hover:bg-gray-50 hover:text-pink-600 transition-colors duration-200 font-medium text-sm touch-manipulation"
             >
               About Us
             </a>
@@ -373,7 +445,7 @@ const Header = ({ sectionSelect, setMenu, isMenu }) => {
                 sectionSelect('blog');
                 setMenu(false);
               }}
-              className="block px-4 py-3 text-gray-700 hover:bg-gray-50 hover:text-pink-600 transition-colors duration-200 font-medium text-sm"
+              className="block px-4 py-2.5 text-gray-700 hover:bg-gray-50 hover:text-pink-600 transition-colors duration-200 font-medium text-sm touch-manipulation"
             >
               Blog
             </a>
@@ -385,18 +457,19 @@ const Header = ({ sectionSelect, setMenu, isMenu }) => {
                 sectionSelect('contact');
                 setMenu(false);
               }}
-              className="block px-4 py-3 text-gray-700 hover:bg-gray-50 hover:text-pink-600 transition-colors duration-200 font-medium text-sm"
+              className="block px-4 py-2.5 text-gray-700 hover:bg-gray-50 hover:text-pink-600 transition-colors duration-200 font-medium text-sm touch-manipulation"
             >
               Contact Us
             </a>
 
-            <div className="px-4 py-3 border-t border-gray-100 mt-4">
+            {/* Mobile Login Button */}
+            <div className="px-4 py-2 border-t border-gray-100 mt-2">
               <button
                 onClick={() => {
                   sectionSelect('login');
                   setMenu(false);
                 }}
-                className="flex items-center space-x-2 text-gray-700 hover:text-pink-600 transition-colors duration-200 font-medium text-sm"
+                className="flex items-center space-x-2 text-gray-700 hover:text-pink-600 transition-colors duration-200 font-medium text-sm w-full py-2 touch-manipulation"
               >
                 <svg
                   className="w-4 h-4"
