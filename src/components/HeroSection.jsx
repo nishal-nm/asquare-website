@@ -155,7 +155,7 @@ const Hero = () => {
 
       {/* Main Content */}
       <div className="relative z-10 h-full flex items-center py-8">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+        <div className="container mx-auto pl-8 sm:pl-12 lg:pl-16 max-w-7xl">
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center min-h-[500px]">
             {/* Left Content */}
             <div className="text-white space-y-6 lg:space-y-8 order-2 lg:order-1">

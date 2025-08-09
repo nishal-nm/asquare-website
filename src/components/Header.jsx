@@ -5,7 +5,7 @@ const Header = ({ sectionSelect, setMenu, isMenu }) => {
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center space-x-3 mt-1">
             <img
-              src="/images/Asquare_logo_1.png"
+              src="./images/Asquare_logo_1.png"
               alt="Asquare Logo"
               className="h-32 sm:h-40 object-contain"
             />
